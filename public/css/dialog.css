@@ -1,0 +1,152 @@
+/* ==========================================================================
+   VENTANA MODAL (Etiqueta <dialog>)
+   ========================================================================== */
+dialog {
+    border: none;
+    border-radius: 16px;
+    padding: 32px;
+    background-color: #ffffff;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    position: relative;
+    /* Permite posicionar la 'X' de cierre */
+}
+
+/* Animación de apertura suave */
+dialog[open] {
+    animation: mostrarModal 0.3s ease-out forwards;
+}
+
+/* Capa de fondo detrás del modal (Oscurecido y desenfocado) */
+dialog::backdrop {
+    background-color: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+/* Título e indicaciones del modal */
+dialog h2 {
+    margin-top: 0;
+    color: #1e293b;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.modal-subtitulo {
+    color: #64748b;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   FORMULARIO DE INICIO DE SESIÓN
+   ========================================================================== */
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Contenedores de etiqueta + caja de texto */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Etiquetas (Labels) */
+.grupo-input label {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #334155;
+}
+
+/* Cajas de texto (Inputs) */
+.grupo-input input {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto visual al hacer clic dentro del input (Focus) */
+.grupo-input input:focus {
+    border-color: #66c766;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
+
+/* Botón principal (Entrar) */
+.btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background-color: #66c766;
+    /* Azul índigo moderno */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-enviar:hover {
+    background-color: #4dc24d;
+}
+
+.btn-enviar:active {
+    transform: scale(0.98);
+}
+
+/* Botón flotante para cerrar (X) */
+.btn-cerrar-x {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-cerrar-x:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+/* ==========================================================================
+   ANIMACIONES (Keyframes)
+   ========================================================================== */
+@keyframes mostrarModal {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TUTORÍA - Ayuda</title>
+    <link rel="stylesheet" href="public/css/nav.css" />
+    <link rel="stylesheet" href="public/css/dialog.css" />
+    <link rel="stylesheet" href="public/css/ayuda.css" />
+    <script src="public/js/iniciarSesion.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="logo">
+        <img
+          src="public/img/ini_sesion.png"
+          id="iniciarSesion"
+          width="30px"
+          height="30px"
+          alt="Iniciar Sesión"
+          style="cursor: pointer"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="ayuda.html" aria-current="page">Ayuda</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <button class="menu-btn" aria-label="Abrir menú">☰</button>
+    </nav>
+
+    <!-- Modal de Inicio de Sesión -->
+    <dialog id="miModal">
+      <form method="dialog">
+        <button class="btn-cerrar-x" aria-label="Cerrar modal">×</button>
+      </form>
+
+      <h2>Iniciar Sesión</h2>
+      <p class="modal-subtitulo">
+        Introduce tus credenciales para acceder a tu cuenta.
+      </p>
+
+      <form class="formulario-login" id="loginForm">
+        <div class="grupo-input">
+          <label for="usuario">Usuario</label>
+          <input
+            type="text"
+            id="usuario"
+            placeholder="Ej: alumno o profesor"
+            required
+            autocomplete="username"
+          />
+        </div>
+
+        <div class="grupo-input">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="••••••••"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+
+        <button type="submit" class="btn-enviar">Entrar</button>
+      </form>
+    </dialog>
+
+    <!-- Contenido Principal: Ayuda -->
+    <main class="main-content">
+      <h1>Centro de Ayuda</h1>
+      <p class="subtitulo-ayuda">
+        Encuentra guías rápidas y respuestas a las dudas más frecuentes sobre la
+        plataforma de tutorías.
+      </p>
+
+      <div class="ayuda-grid">
+        <div class="tarjeta-ayuda">
+          <h3>👨‍🎓 Para Alumnos</h3>
+          <p>¿Cómo empezar?</p>
+          <ul>
+            <li>Inicia sesión escribiendo "alumno" en el campo de usuario.</li>
+            <li>
+              Consulta tus calificaciones y estados de tutoría desde tu panel
+              principal.
+            </li>
+            <li>Revisa las observaciones dejadas por tus profesores.</li>
+          </ul>
+        </div>
+
+        <div class="tarjeta-ayuda">
+          <h3>👩‍🏫 Para Profesores</h3>
+          <p>Gestión de tutorías:</p>
+          <ul>
+            <li>
+              Inicia sesión escribiendo "profesor" en el campo de usuario.
+            </li>
+            <li>
+              Accede al panel de profesor para actualizar notas o registrar
+              incidencias.
+            </li>
+            <li>Gestiona los canales de comunicación con los estudiantes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="faq-section">
+        <h2>Preguntas Frecuentes (FAQ)</h2>
+
+        <div class="faq-item">
+          <h4>¿Cómo puedo iniciar sesión de prueba?</h4>
+          <p>
+            Haz clic en el icono de sesión situado a la izquierda de la barra de
+            navegación. En el campo de usuario puedes escribir
+            <code>alumno</code> o <code>profesor</code> para acceder
+            directamente a sus respectivas vistas simuladas.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h4>¿Qué hago si no puedo acceder a mi cuenta?</h4>
+          <p>
+            Asegúrate de estar utilizando las credenciales de prueba correctas
+            (`alumno` o `profesor`). Si el problema persiste, revisa que tu
+            navegador permita cookies de sesión.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h4>¿Cómo puedo ponerme en contacto con soporte técnico?</h4>
+          <p>
+            Puedes dirigirte a la sección de
+            <a href="contacto.html">Contacto</a> para enviarnos un mensaje
+            directo o consultar las vías alternativas de asistencia.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 TUTORÍA. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="ayuda.html">Ayuda</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </footer>
+  </body>
+</html>
