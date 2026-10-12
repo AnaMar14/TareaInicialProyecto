@@ -1,0 +1,92 @@
+/* Estilos específicos para la sección de contacto */
+.main-content {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+.main-content h1 {
+  color: #111827;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.subtitulo-contacto {
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.info-contacto {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.info-contacto h3 {
+  color: #1f2937;
+  margin-top: 0;
+}
+.info-contacto p,
+.info-contacto li {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.info-contacto ul {
+  padding-left: 1.2rem;
+}
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.grupo-input label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.9rem;
+}
+.grupo-input input,
+.grupo-input textarea {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.grupo-input input:focus,
+.grupo-input textarea:focus {
+  border-color: #66c766;
+}
+.grupo-input textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.btn-enviar-contacto {
+  background-color: #111827;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-enviar-contacto:hover {
+  background-color: #1f2937;
+}
