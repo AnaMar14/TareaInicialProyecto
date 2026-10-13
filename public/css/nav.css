@@ -3,10 +3,13 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 nav {
+  background-color: #1e293b;
   border: 2px solid #66c766;
   border-radius: 45px;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin: 1.25rem auto;
+  max-width: 900px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .navbar {

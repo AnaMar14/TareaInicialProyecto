@@ -1,0 +1,786 @@
+/* ==========================================================================
+   ESTILOS DE GESTIÓN DE HORARIOS Y PERFILES (TUTORÍAS)
+   ========================================================================== */
+
+:root {
+  --color-primary: #66c766;
+  --color-primary-hover: #4dc24d;
+  --color-primary-light: #eaf8ea;
+  --color-dark: #1e293b;
+  --color-dark-surface: #0f172a;
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-blue: #3b82f6;
+  --color-blue-light: #eff6ff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+}
+
+body {
+  margin: 0;
+  background-color: #f8fafc;
+  color: var(--color-gray-700);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tutorias-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* ==========================================================================
+   BARRA DE ESTADO DE SESIÓN / PERFIL
+   ========================================================================== */
+.perfil-header-card {
+  background: white;
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-left: 6px solid var(--color-primary);
+}
+
+.perfil-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.perfil-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-light);
+  color: #1b801b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px solid var(--color-primary);
+}
+
+.perfil-detalles h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--color-dark);
+}
+
+.perfil-detalles p {
+  margin: 0.2rem 0 0 0;
+  color: var(--color-gray-600);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge-rol {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-rol.profesor {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.badge-rol.alumno {
+  background: var(--color-blue-light);
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.perfil-acciones {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.btn-cerrar-sesion {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-cerrar-sesion:hover {
+  background-color: #fecaca;
+  color: #991b1b;
+}
+
+.btn-secundario {
+  background-color: white;
+  color: var(--color-gray-700);
+  border: 1px solid var(--color-gray-300);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-secundario:hover {
+  background-color: var(--color-gray-100);
+}
+
+/* ==========================================================================
+   SECCIONES Y TARJETAS PRINCIPALES
+   ========================================================================== */
+.seccion-titulo-bloque {
+  margin-bottom: 1.5rem;
+}
+
+.seccion-titulo-bloque h1 {
+  font-size: 1.85rem;
+  color: var(--color-dark);
+  margin: 0 0 0.4rem 0;
+}
+
+.seccion-titulo-bloque p {
+  color: var(--color-gray-600);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.card-panel {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-200);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-gray-200);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card-header-flex h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   FORMULARIO DE GESTIÓN DE HORARIOS
+   ========================================================================== */
+.form-grid-horario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.form-grid-horario .campo-full {
+  grid-column: 1 / -1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-gray-700);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--color-dark);
+  background-color: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(102, 199, 102, 0.25);
+}
+
+.form-acciones {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn-publicar {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(102, 199, 102, 0.4);
+}
+
+.btn-publicar:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(102, 199, 102, 0.4);
+}
+
+.btn-publicar:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   ALERTAS Y NOTIFICACIONES
+   ========================================================================== */
+.alerta-feedback {
+  display: none;
+  padding: 0.9rem 1.25rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+.alerta-feedback.exito {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.alerta-feedback.info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-blue-light);
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   LISTA Y TARJETAS DE TRAMOS DE HORARIOS
+   ========================================================================== */
+.toolbar-horarios {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  background: white;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-gray-200);
+}
+
+.contador-badge {
+  font-size: 0.9rem;
+  color: var(--color-gray-600);
+  font-weight: 500;
+}
+
+.contador-badge strong {
+  color: var(--color-dark);
+}
+
+.filtros-horario {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filtros-horario select {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  background: white;
+}
+
+.grid-tramos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.25rem;
+}
+
+.tramo-card {
+  background: white;
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.tramo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: #cbd5e1;
+}
+
+.tramo-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.dia-badge {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.estado-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.estado-badge.disponible {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.hora-rango {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hora-rango span {
+  font-size: 0.9rem;
+  color: var(--color-gray-600);
+  font-weight: normal;
+}
+
+.tramo-materia {
+  font-weight: 600;
+  color: var(--color-gray-700);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tramo-detalles {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--color-gray-600);
+  flex-grow: 1;
+}
+
+.tramo-detalles li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.badge-modalidad {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge-modalidad.presencial {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.badge-modalidad.online {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.tramo-card-footer {
+  border-top: 1px solid var(--color-gray-100);
+  padding-top: 0.9rem;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-eliminar-tramo {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-eliminar-tramo:hover {
+  background-color: #fca5a5;
+  color: #991b1b;
+}
+
+.btn-reservar-tramo {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.btn-reservar-tramo:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: white;
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--color-gray-300);
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-gray-300);
+}
+
+.empty-state h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--color-dark);
+}
+
+.empty-state p {
+  color: var(--color-gray-600);
+  margin: 0;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   LANDING / PORTADA INDEX.HTML
+   ========================================================================== */
+.hero-tutorias {
+  text-align: center;
+  padding: 3.5rem 1rem 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+  border: 1px solid #86efac;
+}
+
+.hero-tutorias h1 {
+  font-size: 2.75rem;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin: 0 0 1rem 0;
+}
+
+.hero-tutorias h1 span {
+  color: #22a322;
+}
+
+.hero-tutorias p {
+  font-size: 1.15rem;
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+}
+
+.roles-acceso-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card-rol-acceso {
+  background: white;
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-rol-acceso:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-rol-icono {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.card-rol-acceso.profesor .card-rol-icono {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.card-rol-acceso.alumno .card-rol-icono {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.card-rol-acceso h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.35rem;
+  color: var(--color-dark);
+}
+
+.card-rol-acceso p {
+  color: var(--color-gray-600);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.card-rol-acceso ul {
+  padding-left: 1.2rem;
+  margin: 0 0 1.5rem 0;
+  color: var(--color-gray-600);
+  font-size: 0.88rem;
+}
+
+.card-rol-acceso ul li {
+  margin-bottom: 0.35rem;
+}
+
+.btn-acceso-rol {
+  display: block;
+  text-align: center;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-acceso-rol.profesor {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-acceso-rol.profesor:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-acceso-rol.alumno {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-acceso-rol.alumno:hover {
+  background-color: #1d4ed8;
+}
+
+/* Selector de rol dentro del modal de login */
+.selector-rol-modal {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.selector-rol-modal button {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  background: white;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selector-rol-modal button.activo {
+  border-color: var(--color-primary);
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.demo-pistas {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border: 1px dashed var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--color-gray-600);
+}
+
+.demo-pistas strong {
+  color: var(--color-dark);
+}
+
+.demo-botones-rapidos {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.btn-demo-rapido {
+  flex: 1;
+  padding: 0.35rem;
+  font-size: 0.78rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+.btn-demo-rapido:hover {
+  background: var(--color-gray-100);
+}
+
+@media (max-width: 768px) {
+  .hero-tutorias h1 {
+    font-size: 2rem;
+  }
+  .perfil-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .perfil-acciones {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
