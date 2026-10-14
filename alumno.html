@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TUTORÍA</title>
+    <link rel="stylesheet" href="public/css/nav.css" />
+    <link rel="stylesheet" href="public/css/calendario.css" />  
+    <script src="public/js/calendario.js" defer></script>
+
+</head>
+
+<body>
+    <nav class="navbar" aria-label="Navegación principal">
+        <div class="logo">
+            <img src="public/img/ini_sesion.png" id="iniciarSesion" width="30px" height="33px" />
+        </div>
+    </nav>
+
+
+    <main class="contenedor-calendario">
+        <section class="cabecera-calendario">
+            <div>
+                <h1>Disponibilidad de profesores</h1>
+                <p>Encuentra el horario que mejor te venga.</p>
+            </div>
+
+            <label for="profesor">Profesor:</label>
+            <select id="profesor">
+                <option value="todos">Todos los profesores</option>
+                <option value="garcia">Prof. García</option>
+                <option value="lopez">Prof. López</option>
+                <option value="martinez">Prof. Martínez</option>
+            </select>
+        </section>
+
+        <section class="calendario">
+            <div class="controles-calendario">
+                <button id="semanaAnterior" type="button">
+                    &larr; Anterior
+                </button>
+
+                <h2 id="tituloSemana">Semana actual</h2>
+
+                <button id="semanaSiguiente" type="button">
+                    Siguiente &rarr;
+                </button>
+            </div>
+
+            <div class="leyenda">
+                <span><i class="libre"></i> Disponible</span>
+                <span><i class="ocupado"></i> Ocupado</span>
+                <span><i class="seleccionado"></i> Seleccionado</span>
+            </div>
+
+            <div class="tabla-scroll">
+                <table id="tablaCalendario">
+                    <thead id="cabeceraDias"></thead>
+                    <tbody id="horariosCalendario"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="resumen-reserva">
+            <h2>Tu selección</h2>
+
+            <p id="mensajeSeleccion">
+                Selecciona un horario disponible del calendario.
+            </p>
+
+            <button id="confirmarReserva" type="button" disabled>
+                Solicitar tutoría
+            </button>
+        </section>
+    </main>
+
+
+
+    <!-- FOOTER BÁSICO -->
+    <footer class="footer">
+        <p>&copy; 2026 TUTORÍAS. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="ayuda.html">Ayuda</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </footer>
+</body>
+
+</html>
