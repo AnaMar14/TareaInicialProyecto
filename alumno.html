@@ -1,52 +1,198 @@
+```html
 <!doctype html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TUTORÍA - Panel del Alumno (Consulta de Horarios Disponibles)</title>
+
+    <title>TUTORÍAS - Panel del Alumno</title>
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="public/css/nav.css" />
     <link rel="stylesheet" href="public/css/dialog.css" />
     <link rel="stylesheet" href="public/css/tutorias.css" />
+    <link rel="stylesheet" href="public/css/calendario.css" />
+
+    <!-- JavaScript -->
     <script src="public/js/horarios.js" defer></script>
     <script src="public/js/iniciarSesion.js" defer></script>
-  </head>
+    <script src="public/js/calendario.js" defer></script>
+</head>
 
-  <body>
-    <!-- Barra de Navegación Principal -->
+<body>
+
+    <!-- Barra de navegación principal -->
     <nav class="navbar" aria-label="Navegación principal">
-      <div class="logo">
-        <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
-          <img
-            src="public/img/ini_sesion.png"
-            id="iniciarSesion"
-            width="30px"
-            height="30px"
-            alt="Iniciar Sesión"
-            style="cursor: pointer;"
-          />
-          <span style="font-size: 1.1rem; color: #fff; font-weight: 700;">TUTORÍAS</span>
-        </a>
-      </div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="alumno.html" aria-current="page" style="color: #60a5fa; font-weight: 700;">Panel Alumno</a></li>
-        <li><a href="profesor.html">Panel Profesor</a></li>
-        <li><a href="ayuda.html">Ayuda</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
+        <div class="logo">
+            <a href="index.html"
+               style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
 
-      <button class="menu-btn" aria-label="Abrir menú">☰</button>
+                <img
+                    src="public/img/ini_sesion.png"
+                    id="iniciarSesion"
+                    width="30"
+                    height="30"
+                    alt="Iniciar sesión"
+                    style="cursor: pointer;"
+                />
+
+                <span style="font-size: 1.1rem; color: #fff; font-weight: 700;">
+                    TUTORÍAS
+                </span>
+
+            </a>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+
+            <li>
+                <a href="alumno.html"
+                   aria-current="page"
+                   style="color: #60a5fa; font-weight: 700;">
+                    Panel Alumno
+                </a>
+            </li>
+
+            <li>
+                <a href="profesor.html">Panel Profesor</a>
+            </li>
+
+            <li>
+                <a href="ayuda.html">Ayuda</a>
+            </li>
+
+            <li>
+                <a href="contacto.html">Contacto</a>
+            </li>
+        </ul>
+
+        <button class="menu-btn" aria-label="Abrir menú" type="button">
+            ☰
+        </button>
+
     </nav>
 
-    <!-- Footer -->
+
+    <!-- Contenido principal: disponibilidad de profesores -->
+    <main class="contenedor-calendario">
+
+        <!-- Cabecera y filtro de profesores -->
+        <section class="cabecera-calendario">
+
+            <div>
+                <h1>Disponibilidad de profesores</h1>
+                <p>Encuentra el horario que mejor te venga.</p>
+            </div>
+
+            <div>
+                <label for="profesor">Profesor:</label>
+
+                <select id="profesor">
+                    <option value="todos">Todos los profesores</option>
+                    <option value="garcia">Prof. García</option>
+                    <option value="lopez">Prof. López</option>
+                    <option value="martinez">Prof. Martínez</option>
+                </select>
+            </div>
+
+        </section>
+
+
+        <!-- Calendario semanal -->
+        <section class="calendario">
+
+            <div class="controles-calendario">
+
+                <button id="semanaAnterior" type="button">
+                    &larr; Anterior
+                </button>
+
+                <h2 id="tituloSemana">Semana actual</h2>
+
+                <button id="semanaSiguiente" type="button">
+                    Siguiente &rarr;
+                </button>
+
+            </div>
+
+
+            <!-- Leyenda de los horarios -->
+            <div class="leyenda">
+
+                <span>
+                    <i class="libre"></i>
+                    Disponible
+                </span>
+
+                <span>
+                    <i class="ocupado"></i>
+                    Ocupado
+                </span>
+
+                <span>
+                    <i class="seleccionado"></i>
+                    Seleccionado
+                </span>
+
+            </div>
+
+
+            <!-- Tabla de disponibilidad -->
+            <div class="tabla-scroll">
+
+                <table id="tablaCalendario">
+
+                    <thead id="cabeceraDias"></thead>
+
+                    <tbody id="horariosCalendario"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Resumen y solicitud de tutoría -->
+        <section class="resumen-reserva">
+
+            <h2>Tu selección</h2>
+
+            <p id="mensajeSeleccion">
+                Selecciona un horario disponible del calendario.
+            </p>
+
+            <button
+                id="confirmarReserva"
+                type="button"
+                disabled>
+                Solicitar tutoría
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- Pie de página -->
     <footer class="footer">
-      <p>&copy; 2026 TUTORÍAS. Todos los derechos reservados.</p>
-      <div class="footer-links">
-        <a href="index.html">Inicio</a>
-        <a href="ayuda.html">Ayuda</a>
-        <a href="contacto.html">Contacto</a>
-      </div>
+
+        <p>&copy; 2026 TUTORÍAS. Todos los derechos reservados.</p>
+
+        <div class="footer-links">
+            <a href="index.html">Inicio</a>
+            <a href="ayuda.html">Ayuda</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+
     </footer>
-  </body>
+
+</body>
+
 </html>
+```
