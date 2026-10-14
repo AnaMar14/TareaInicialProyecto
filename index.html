@@ -6,6 +6,15 @@
     <title>TUTORÍA</title>
     <link rel="stylesheet" href="public/css/nav.css" />
     <link rel="stylesheet" href="public/css/dialog.css" />
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TUTORÍA - Plataforma de Tutorías Académicas</title>
+    <link rel="stylesheet" href="public/css/nav.css" />
+    <link rel="stylesheet" href="public/css/dialog.css" />
+    <link rel="stylesheet" href="public/css/tutorias.css" />
+    <script src="public/js/horarios.js" defer></script>
     <script src="public/js/iniciarSesion.js" defer></script>
   </head>
 
@@ -22,6 +31,27 @@
 
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
+    <!-- Barra de Navegación Principal -->
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="logo">
+        <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+          <img
+            src="public/img/ini_sesion.png"
+            id="iniciarSesion"
+            width="30px"
+            height="30px"
+            alt="Iniciar Sesión"
+            title="Haz clic para iniciar sesión"
+            style="cursor: pointer;"
+          />
+          <span style="font-size: 1.1rem; color: #fff; font-weight: 700;">TUTORÍAS</span>
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page" style="color: #66c766; font-weight: 700;">Inicio</a></li>
+        <li><a href="profesor.html">Panel Profesor</a></li>
+        <li><a href="alumno.html">Panel Alumno</a></li>
         <li><a href="ayuda.html">Ayuda</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
@@ -29,6 +59,68 @@
       <button class="menu-btn" aria-label="Abrir menú">☰</button>
     </nav>
 
+    <!-- Contenido Principal: Hero y Selección de Rol -->
+    <main class="tutorias-container">
+      <section class="hero-tutorias">
+        <span class="hero-tag">🎓 Prototipo de Tutorías Académicas</span>
+        <h1>Gestiona y Reserva tus Tutorías <span>Fácilmente</span></h1>
+        <p>
+          Inicia sesión con tu rol correspondiente para acceder a las funciones específicas de tu perfil: los profesores publican sus tramos de horarios disponibles y los alumnos consultan cuándo pueden reservar una tutoría.
+        </p>
+
+        <!-- Botón para abrir modal directamente -->
+        <button type="button" class="btn-publicar btn-abrir-login" style="margin: 0 auto 2.5rem auto;">
+          🔐 Iniciar Sesión con mi Rol
+        </button>
+      </section>
+
+      <!-- Cuadrícula de Selección de Roles -->
+      <section class="roles-acceso-grid" aria-label="Acceso por perfiles">
+        <!-- Rol 1: Profesor -->
+        <article class="card-rol-acceso profesor">
+          <div class="card-rol-icono">👨‍🏫</div>
+          <h3>Perfil del Profesor</h3>
+          <p>
+            Accede a tu panel para gestionar tus tutorías académicas y publicar los tramos de horarios en los que estás disponible.
+          </p>
+          <ul>
+            <li>✔ Publicar nuevos tramos de horarios con horas y modalidad</li>
+            <li>✔ Indicar despacho presencial o enlace virtual</li>
+            <li>✔ Retirar tramos de horarios no disponibles</li>
+          </ul>
+          <button
+            type="button"
+            class="btn-acceso-rol profesor"
+            onclick="iniciarSesionRapida('profesor')"
+          >
+            Acceder como Profesor →
+          </button>
+        </article>
+
+        <!-- Rol 2: Alumno -->
+        <article class="card-rol-acceso alumno">
+          <div class="card-rol-icono">🎓</div>
+          <h3>Perfil del Alumno</h3>
+          <p>
+            Entra a tu perfil para consultar la disponibilidad de tus profesores y saber con exactitud cuándo puedes solicitar una tutoría.
+          </p>
+          <ul>
+            <li>✔ Consultar tramos de horarios publicados en tiempo real</li>
+            <li>✔ Filtrar por días de la semana y modalidad</li>
+            <li>✔ Solicitar la reserva del tramo deseado</li>
+          </ul>
+          <button
+            type="button"
+            class="btn-acceso-rol alumno"
+            onclick="iniciarSesionRapida('alumno')"
+          >
+            Acceder como Alumno →
+          </button>
+        </article>
+      </section>
+    </main>
+
+    <!-- Modal de Inicio de Sesión -->
     <dialog id="miModal">
       <!-- Botón de cerrar (X) en la esquina superior derecha -->
       <form method="dialog">
@@ -38,6 +130,7 @@
       <h2>Iniciar Sesión</h2>
       <p class="modal-subtitulo">
         Introduce tus credenciales para acceder a tu cuenta.
+        Introduce tu rol o credenciales para acceder a tu perfil específico.
       </p>
 
       <!-- Formulario de Inicio de Sesión -->
@@ -48,6 +141,11 @@
             type="text"
             id="usuario"
             placeholder="Nombre de usuario"
+          <label for="usuario">Usuario o Rol</label>
+          <input
+            type="text"
+            id="usuario"
+            placeholder="Ej: profesor o alumno"
             required
             autocomplete="username"
           />
@@ -59,6 +157,7 @@
             type="password"
             id="password"
             placeholder="••••••••"
+            value="123456"
             required
             autocomplete="current-password"
           />
@@ -72,6 +171,36 @@
     <footer class="footer">
       <p>&copy; 2026 TUTORÍAS. Todos los derechos reservados.</p>
       <div class="footer-links">
+        <button type="submit" class="btn-enviar">Entrar con mi rol</button>
+
+        <!-- Pistas y accesos directos para evaluación de prototipo -->
+        <div class="demo-pistas">
+          <strong>Acceso rápido directo (Prototipo):</strong>
+          <div class="demo-botones-rapidos">
+            <button
+              type="button"
+              class="btn-demo-rapido"
+              onclick="iniciarSesionRapida('profesor')"
+            >
+              👨‍🏫 Entrar como Profesor
+            </button>
+            <button
+              type="button"
+              class="btn-demo-rapido"
+              onclick="iniciarSesionRapida('alumno')"
+            >
+              🎓 Entrar como Alumno
+            </button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 TUTORÍAS. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
         <a href="ayuda.html">Ayuda</a>
         <a href="contacto.html">Contacto</a>
       </div>
