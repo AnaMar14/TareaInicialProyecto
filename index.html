@@ -1,4 +1,11 @@
 <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TUTORÍA</title>
+    <link rel="stylesheet" href="public/css/nav.css" />
+    <link rel="stylesheet" href="public/css/dialog.css" />
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -12,6 +19,18 @@
   </head>
 
   <body>
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="logo">
+        <img
+          src="public/img/ini_sesion.png"
+          id="iniciarSesion"
+          width="30px"
+          height="33px"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
     <!-- Barra de Navegación Principal -->
     <nav class="navbar" aria-label="Navegación principal">
       <div class="logo">
@@ -110,12 +129,18 @@
 
       <h2>Iniciar Sesión</h2>
       <p class="modal-subtitulo">
+        Introduce tus credenciales para acceder a tu cuenta.
         Introduce tu rol o credenciales para acceder a tu perfil específico.
       </p>
 
       <!-- Formulario de Inicio de Sesión -->
       <form class="formulario-login" id="loginForm">
         <div class="grupo-input">
+          <label for="usuario">Usuario</label>
+          <input
+            type="text"
+            id="usuario"
+            placeholder="Nombre de usuario"
           <label for="usuario">Usuario o Rol</label>
           <input
             type="text"
@@ -138,6 +163,14 @@
           />
         </div>
 
+        <button type="submit" class="btn-enviar">Entrar</button>
+      </form>
+    </dialog>
+
+    <!-- FOOTER BÁSICO -->
+    <footer class="footer">
+      <p>&copy; 2026 TUTORÍAS. Todos los derechos reservados.</p>
+      <div class="footer-links">
         <button type="submit" class="btn-enviar">Entrar con mi rol</button>
 
         <!-- Pistas y accesos directos para evaluación de prototipo -->
