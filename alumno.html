@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="es">
 
@@ -13,6 +12,7 @@
     <link rel="stylesheet" href="public/css/dialog.css" />
     <link rel="stylesheet" href="public/css/tutorias.css" />
     <link rel="stylesheet" href="public/css/calendario.css" />
+    <link rel="stylesheet" href="public/css/solicitudes.css" />
 
     <!-- JavaScript -->
     <script src="public/js/horarios.js" defer></script>
@@ -94,9 +94,7 @@
 
                 <select id="profesor">
                     <option value="todos">Todos los profesores</option>
-                    <option value="garcia">Prof. García</option>
-                    <option value="lopez">Prof. López</option>
-                    <option value="martinez">Prof. Martínez</option>
+                    <!-- El resto de opciones las genera calendario.js -->
                 </select>
             </div>
 
@@ -139,6 +137,16 @@
                     Seleccionado
                 </span>
 
+                <span>
+                    <i class="l-pendiente"></i>
+                    Tu solicitud pendiente
+                </span>
+
+                <span>
+                    <i class="l-aceptada"></i>
+                    Tu tutoría aceptada
+                </span>
+
             </div>
 
 
@@ -167,6 +175,9 @@
                 Selecciona un horario disponible del calendario.
             </p>
 
+            <textarea id="motivoReserva" class="campo-motivo" rows="2"
+                placeholder="Motivo o duda para el profesor (opcional)"></textarea>
+
             <button
                 id="confirmarReserva"
                 type="button"
@@ -174,6 +185,14 @@
                 Solicitar tutoría
             </button>
 
+        </section>
+
+
+        <!-- Mis solicitudes -->
+        <section class="resumen-reserva" aria-labelledby="titulo-mis-tutorias">
+            <h2 id="titulo-mis-tutorias">Mis tutorías</h2>
+            <p class="contador-solicitudes" id="contadorMisSolicitudes"></p>
+            <div class="lista-solicitudes" id="listaMisSolicitudes"></div>
         </section>
 
     </main>
@@ -195,4 +214,3 @@
 </body>
 
 </html>
-```

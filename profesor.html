@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="public/css/nav.css" />
     <link rel="stylesheet" href="public/css/dialog.css" />
     <link rel="stylesheet" href="public/css/tutorias.css" />
+    <link rel="stylesheet" href="public/css/solicitudes.css" />
     <script src="public/js/horarios.js" defer></script>
     <script src="public/js/iniciarSesion.js" defer></script>
   </head>
@@ -78,6 +79,15 @@
           <p style="margin: 0.1rem 0 0 0; font-size: 0.88rem;">El nuevo horario ya está disponible en la plataforma para que los alumnos lo consulten y reserven.</p>
         </div>
       </div>
+
+      <!-- Solicitudes de tutoría recibidas -->
+      <section class="card-panel" aria-labelledby="titulo-solicitudes">
+        <div class="card-header-flex">
+          <h3 id="titulo-solicitudes">🔔 Solicitudes de tutoría</h3>
+          <span class="contador-solicitudes" id="contadorSolicitudes">Cargando...</span>
+        </div>
+        <div class="lista-solicitudes" id="listaSolicitudes"></div>
+      </section>
 
       <!-- Bloque 1: Formulario para publicar tramos de horarios disponibles -->
       <section class="card-panel" aria-labelledby="titulo-publicar">

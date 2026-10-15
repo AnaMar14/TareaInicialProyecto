@@ -53,8 +53,8 @@ function obtenerSesion() {
 // Cerrar sesión
 function cerrarSesion() {
   localStorage.removeItem(STORAGE_KEY_USUARIO);
-  document.cookie = "usuario=;path=/;expires=Fri, 1 Jan 2027 00:00:01 GMT";
-  document.cookie = "rol=;path=/;expires=Fri, 1 Jan 2027 00:00:01 GMT";
+  document.cookie = "usuario=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  document.cookie = "rol=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT";
   window.location.href = "index.html";
 }
 
@@ -64,7 +64,7 @@ function iniciarSesionRapida(rol) {
     guardarSesion("Prof. Julián Barreno", "profesor");
     window.location.href = "profesor.html";
   } else if (rol === "alumno") {
-    guardarSesion("Pablo Arjonilla Cuadrado (Alumno)", "alumno");
+    guardarSesion("Pablo Arjonilla Cuadrado", "alumno");
     window.location.href = "alumno.html";
   }
 }
@@ -110,11 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (rolFinal === "profesor") {
-        const nombreFinal = usuarioInput ? (usuarioInput.charAt(0).toUpperCase() + usuarioInput.slice(1)) : "Prof. Julián Barreno";
+        const nombreFinal = "Prof. Julián Barreno";
         guardarSesion(nombreFinal, "profesor");
         window.location.href = "profesor.html";
       } else if (rolFinal === "alumno") {
-        const nombreFinal = usuarioInput ? (usuarioInput.charAt(0).toUpperCase() + usuarioInput.slice(1)) : "Pablo Arjonilla Cuadrado";
+        const nombreFinal = "Pablo Arjonilla Cuadrado";
         guardarSesion(nombreFinal, "alumno");
         window.location.href = "alumno.html";
       } else {
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname.endsWith("alumno.html")) {
     if (!usuarioActivo || usuarioActivo.rol !== "alumno") {
       // Si no tiene sesión de alumno activa, inicializamos la demo de alumno para facilitar la corrección
-      guardarSesion("Pablo Arjonilla Cuadrado (Alumno)", "alumno");
+      guardarSesion("Pablo Arjonilla Cuadrado", "alumno");
     }
     const sesionActual = obtenerSesion();
     const elemNombre = document.getElementById("nombreUsuarioSesion");

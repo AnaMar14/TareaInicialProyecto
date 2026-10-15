@@ -1,0 +1,161 @@
+/* Solicitudes, notificaciones y marcas de tutoría */
+
+/* Badge de notificaciones en la barra de navegación */
+.badge-notif {
+  display: inline-block;
+  min-width: 18px;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Toasts */
+#toastTutorias {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: min(360px, 90vw);
+}
+.toast-item {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background: #1e293b;
+  border-left: 4px solid #66c766;
+  color: #fff;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  animation: toastEntrada 0.25s ease-out;
+}
+@keyframes toastEntrada {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lista de solicitudes (profesor y alumno) */
+.contador-solicitudes {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+.contador-solicitudes.con-pendientes {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.lista-solicitudes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.solicitudes-vacio {
+  margin: 0;
+  color: #64748b;
+}
+.solicitud-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #94a3b8;
+  border-radius: 10px;
+  background: #fff;
+}
+.solicitud-card.pendiente { border-left-color: #f59e0b; background: #fffbeb; }
+.solicitud-card.aceptada { border-left-color: #22c55e; background: #f0fdf4; }
+.solicitud-card.rechazada,
+.solicitud-card.cancelada { border-left-color: #cbd5e1; opacity: 0.8; }
+
+.solicitud-titulo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.3rem;
+}
+.solicitud-detalle {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.solicitud-motivo {
+  margin-top: 0.3rem;
+  color: #334155;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+.solicitud-estado {
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #e2e8f0;
+  color: #334155;
+}
+.solicitud-estado.pendiente { background: #fef3c7; color: #92400e; }
+.solicitud-estado.aceptada { background: #dcfce7; color: #166534; }
+.solicitud-estado.rechazada { background: #fee2e2; color: #991b1b; }
+
+.solicitud-acciones {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn-aceptar,
+.btn-rechazar {
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-aceptar {
+  border: none;
+  background: #22c55e;
+  color: #fff;
+}
+.btn-aceptar:hover { background: #16a34a; }
+.btn-rechazar {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #475569;
+}
+.btn-rechazar:hover { background: #f1f5f9; }
+
+/* Calendario del alumno */
+.hueco span,
+.hueco small { display: block; }
+.hueco small { margin-top: 2px; font-size: 0.74rem; opacity: 0.85; }
+td .hueco + .hueco { margin-top: 6px; }
+.celda-vacia { color: #cbd5e1; }
+
+.hueco.mia { cursor: default; font-weight: 600; }
+.hueco.mia.aceptada { background: #22c55e; color: #fff; }
+.hueco.mia.pendiente { background: #fef3c7; color: #92400e; border: 1px dashed #f59e0b; }
+
+.leyenda i.l-pendiente { background: #fef3c7; border: 1px dashed #f59e0b; }
+.leyenda i.l-aceptada { background: #22c55e; }
+
+.campo-motivo {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 14px;
+  padding: 10px;
+  border: 1px solid #d5dce2;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
