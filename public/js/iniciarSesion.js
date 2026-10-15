@@ -76,8 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnAbrirModal");
   const loginForm = document.getElementById("loginForm");
 
-  // Abrir modal al hacer clic en el icono de sesión
-  if (btnAbrirModal) {
   // Abrir modal de inicio de sesión
   if (btnAbrirModal && modal) {
     btnAbrirModal.addEventListener("click", () => {
@@ -85,33 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Simulación de inicio de sesión frontend sin backend
-  if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const usuarioInput = document
-        .getElementById("usuario")
-        .value.trim()
-        .toLowerCase();
-
-      if (usuarioInput.includes("profesor")) {
-        //Hacerlo con cookies
-        document.cookie = "usuario=" + usuarioInput + ";path=/";
-        document.cookie = "rol=profesor" + ";path=/";
-        
-        window.location.href = "profesor.html";
-      } else if (usuarioInput.includes("alumno")) {
-        document.cookie = "usuario=" + usuarioInput + ";path=/";
-        document.cookie = "rol=alumno" + ";path=/";
-
-        window.location.href = "alumno.html";
-      } else {
-        alert(
-          "Usuario de prueba desconocido. Prueba escribiendo 'profesor' o 'alumno'.",
-        );
-      }
-    });
-  }
   // Permitir abrir con cualquier botón de clase .btn-abrir-login
   document.querySelectorAll(".btn-abrir-login").forEach((btn) => {
     btn.addEventListener("click", () => {
