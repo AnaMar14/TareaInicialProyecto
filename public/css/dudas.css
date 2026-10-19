@@ -1,0 +1,13 @@
+/* Dudas del alumno */
+.contador-motivo {
+    display: block;
+    text-align: right;
+    color: #64748b;
+    font-size: 0.8rem;
+    margin: 0.25rem 0 0.75rem;
+}
+
+.campo-motivo.campo-error {
+    border-color: #ef4444;
+    outline: 2px solid #fecaca;
+}
