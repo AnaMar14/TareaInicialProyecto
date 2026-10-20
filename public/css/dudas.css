@@ -11,3 +11,12 @@
     border-color: #ef4444;
     outline: 2px solid #fecaca;
 }
+
+/* Dudas destacadas en la tarjeta del profesor */
+.solicitud-motivo {
+    background: #fffbeb;
+    border-left: 3px solid #f59e0b;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    white-space: pre-wrap;
+}
