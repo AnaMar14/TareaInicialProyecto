@@ -387,7 +387,18 @@ function inicializarVistaProfesor() {
             ${r.motivo ? `<div class="solicitud-motivo"><strong>\u{1F4DD} Dudas del alumno:</strong> ` + `${escapeHtml(r.motivo)}</div>` : ""}
 
 
-            ${r.estado === "Cancelada" ? `<div class="solicitud-detalle">${r.canceladaPor === "alumno" ? "El alumno canceló la solicitud." : "Cancelada al retirar el tramo."}</div>` : ""}
+            ${
+              r.estado === "Cancelada"
+                ? `<div class="solicitud-detalle">${
+                    r.canceladaPor === "alumno"
+                      ? "El alumno canceló la solicitud."
+                      : r.motivoCancelacion
+                        ? "Cancelada por ti. Motivo: " +
+                          escapeHtml(r.motivoCancelacion)
+                        : "Cancelada al retirar el tramo."
+                  }</div>`
+                : ""
+            }
           </div>
           ${
             r.estado === "Pendiente"
@@ -398,6 +409,17 @@ function inicializarVistaProfesor() {
           </div>`
               : ""
           }
+
+          ${
+            r.estado === "Aceptada"
+              ? `
+            <div class="solicitud-acciones">
+          <button type="button" class="btn-rechazar" data-accion="cancelar-profesor"
+          data-id="${escapeHtml(r.id)}">\u{1F6AB} Cancelar tutoría</button>
+          </div>`
+              : ""
+          }
+
         </article>`,
       )
       .join("");

@@ -1,265 +1,255 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TUTORÍA - Panel del Profesor (Gestión de Horarios)</title>
-    <link rel="stylesheet" href="public/css/nav.css" />
-    <link rel="stylesheet" href="public/css/dialog.css" />
-    <link rel="stylesheet" href="public/css/tutorias.css" />
-    <link rel="stylesheet" href="public/css/solicitudes.css" />
-    <link rel="stylesheet" href="public/css/dudas.css" />
-    <script src="public/js/horarios.js" defer></script>
-    <script src="public/js/iniciarSesion.js" defer></script>
-    <script src="public/js/cancelaciones.js" defer></script>
-  </head>
 
-  <body>
-    <!-- Barra de Navegación Principal -->
-    <nav class="navbar" aria-label="Navegación principal">
-      <div class="logo">
-        <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
-          <img
-            src="public/img/ini_sesion.png"
-            id="iniciarSesion"
-            width="30px"
-            height="30px"
-            alt="Iniciar Sesión"
-            style="cursor: pointer;"
-          />
-          <span style="font-size: 1.1rem; color: #fff; font-weight: 700;">TUTORÍAS</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TUTORÍA - Panel del Profesor (Gestión de Horarios)</title>
+  <link rel="stylesheet" href="public/css/nav.css" />
+  <link rel="stylesheet" href="public/css/dialog.css" />
+  <link rel="stylesheet" href="public/css/tutorias.css" />
+  <link rel="stylesheet" href="public/css/solicitudes.css" />
+  <link rel="stylesheet" href="public/css/dudas.css" />
+  <link rel="stylesheet" href="public/css/cancelaciones.css" />
+  <script src="public/js/horarios.js" defer></script>
+  <script src="public/js/iniciarSesion.js" defer></script>
+  <script src="public/js/cancelaciones.js" defer></script>
+</head>
+
+<body>
+  <!-- Barra de Navegación Principal -->
+  <nav class="navbar" aria-label="Navegación principal">
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+        <img src="public/img/ini_sesion.png" id="iniciarSesion" width="30px" height="30px" alt="Iniciar Sesión"
+          style="cursor: pointer;" />
+        <span style="font-size: 1.1rem; color: #fff; font-weight: 700;">TUTORÍAS</span>
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="profesor.html" aria-current="page" style="color: #66c766; font-weight: 700;">Panel Profesor</a></li>
+      <li><a href="alumno.html">Vista Alumno</a></li>
+      <li><a href="ayuda.html">Ayuda</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+    <button class="menu-btn" aria-label="Abrir menú">☰</button>
+  </nav>
+
+  <!-- Contenido Principal -->
+  <main class="tutorias-container">
+    <!-- Tarjeta de Perfil / Estado de Sesión -->
+    <section class="perfil-header-card" aria-label="Información de sesión del profesor">
+      <div class="perfil-info">
+        <div class="perfil-avatar" id="avatarUsuarioSesion"></div>
+        <div class="perfil-detalles">
+          <h2 id="nombreUsuarioSesion">Prof. Julián Barreno</h2>
+          <p>
+            <span>Sesión activa como:</span>
+            <span class="badge-rol profesor" id="rolUsuarioSesion">Profesor</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="perfil-acciones">
+        <a href="alumno.html" class="btn-secundario"
+          title="Comprueba cómo visualizan los alumnos tus tramos de tutoría">
+          👁️ Ver vista del Alumno
         </a>
+        <button type="button" class="btn-cerrar-sesion" id="btnCerrarSesion">
+          🚪 Cerrar Sesión
+        </button>
       </div>
+    </section>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="profesor.html" aria-current="page" style="color: #66c766; font-weight: 700;">Panel Profesor</a></li>
-        <li><a href="alumno.html">Vista Alumno</a></li>
-        <li><a href="ayuda.html">Ayuda</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-
-      <button class="menu-btn" aria-label="Abrir menú">☰</button>
-    </nav>
-
-    <!-- Contenido Principal -->
-    <main class="tutorias-container">
-      <!-- Tarjeta de Perfil / Estado de Sesión -->
-      <section class="perfil-header-card" aria-label="Información de sesión del profesor">
-        <div class="perfil-info">
-          <div class="perfil-avatar" id="avatarUsuarioSesion"></div>
-          <div class="perfil-detalles">
-            <h2 id="nombreUsuarioSesion">Prof. Julián Barreno</h2>
-            <p>
-              <span>Sesión activa como:</span>
-              <span class="badge-rol profesor" id="rolUsuarioSesion">Profesor</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="perfil-acciones">
-          <a href="alumno.html" class="btn-secundario" title="Comprueba cómo visualizan los alumnos tus tramos de tutoría">
-            👁️ Ver vista del Alumno
-          </a>
-          <button type="button" class="btn-cerrar-sesion" id="btnCerrarSesion">
-            🚪 Cerrar Sesión
-          </button>
-        </div>
-      </section>
-
-      <!-- Encabezado de la Sección -->
-      <div class="seccion-titulo-bloque">
-        <h1>Gestión de Horarios de Tutoría</h1>
-        <p>Publica tus tramos de horarios disponibles para que los alumnos conozcan cuándo pueden reservar una tutoría.</p>
-      </div>
-
-      <!-- Alerta feedback interactiva -->
-      <div id="alertaFeedbackExito" class="alerta-feedback exito" role="alert">
-        <span>✅</span>
-        <div>
-          <strong>¡Tramo horario publicado correctamente!</strong>
-          <p style="margin: 0.1rem 0 0 0; font-size: 0.88rem;">El nuevo horario ya está disponible en la plataforma para que los alumnos lo consulten y reserven.</p>
-        </div>
-      </div>
-
-      <!-- Solicitudes de tutoría recibidas -->
-      <section class="card-panel" aria-labelledby="titulo-solicitudes">
-        <div class="card-header-flex">
-          <h3 id="titulo-solicitudes">🔔 Solicitudes de tutoría</h3>
-          <span class="contador-solicitudes" id="contadorSolicitudes">Cargando...</span>
-        </div>
-        <div class="lista-solicitudes" id="listaSolicitudes"></div>
-      </section>
-
-      <!-- Bloque 1: Formulario para publicar tramos de horarios disponibles -->
-      <section class="card-panel" aria-labelledby="titulo-publicar">
-        <div class="card-header-flex">
-          <h3 id="titulo-publicar">➕ Publicar nuevo tramo de horario disponible</h3>
-          <span style="font-size: 0.85rem; color: #64748b;">Rellena los datos para abrir un nuevo tramo de tutoría</span>
-        </div>
-
-        <form id="formPublicarHorario">
-          <div class="form-grid-horario">
-            <!-- Día de la semana -->
-            <div class="form-group">
-              <label for="tramoDia">Día de la semana *</label>
-              <select id="tramoDia" required>
-                <option value="Lunes">Lunes</option>
-                <option value="Martes">Martes</option>
-                <option value="Miércoles">Miércoles</option>
-                <option value="Jueves">Jueves</option>
-                <option value="Viernes">Viernes</option>
-              </select>
-            </div>
-
-            <!-- Hora de inicio -->
-            <div class="form-group">
-              <label for="tramoHoraInicio">Hora de inicio *</label>
-              <input type="time" id="tramoHoraInicio" value="09:30" required />
-            </div>
-
-            <!-- Hora de fin -->
-            <div class="form-group">
-              <label for="tramoHoraFin">Hora de finalización *</label>
-              <input type="time" id="tramoHoraFin" value="11:00" required />
-            </div>
-
-            <!-- Modalidad -->
-            <div class="form-group">
-              <label for="tramoModalidad">Modalidad *</label>
-              <select id="tramoModalidad" required>
-                <option value="Presencial">Presencial (Despacho / Aula)</option>
-                <option value="Online">Online (Videollamada)</option>
-              </select>
-            </div>
-
-            <!-- Asignatura / Módulo -->
-            <div class="form-group">
-              <label for="tramoAsignatura">Asignatura o Especialidad *</label>
-              <input
-                type="text"
-                id="tramoAsignatura"
-                placeholder="Ej: Desarrollo de Interfaces Web"
-                value="Desarrollo de Interfaces Web"
-                required
-              />
-            </div>
-
-            <!-- Ubicación / Aula o enlace -->
-            <div class="form-group">
-              <label for="tramoLugar">Despacho o Enlace virtual *</label>
-              <input
-                type="text"
-                id="tramoLugar"
-                placeholder="Ej: Despacho 204 o Google Meet"
-                value="Despacho 204 (Edificio Central)"
-                required
-              />
-            </div>
-
-            <!-- Notas adicionales -->
-            <div class="form-group campo-full">
-              <label for="tramoNotas">Observaciones / Indicaciones para el alumno</label>
-              <textarea
-                id="tramoNotas"
-                rows="2"
-                placeholder="Ej: Traer dudas preparadas, proyectos en el portátil o enunciado de la práctica..."
-              ></textarea>
-            </div>
-          </div>
-
-          <div class="form-acciones">
-            <button type="submit" class="btn-publicar">
-              <span>➕</span> Publicar Tramo Horario
-            </button>
-          </div>
-        </form>
-      </section>
-
-      <!-- Bloque 2: Listado de tramos de horarios publicados -->
-      <section class="card-panel" aria-labelledby="titulo-tramos-publicados">
-        <div class="card-header-flex">
-          <h3 id="titulo-tramos-publicados">📋 Mis Tramos Horarios Publicados</h3>
-          <button type="button" class="btn-secundario" id="btnRestablecerTramos" style="font-size: 0.82rem;">
-            🔄 Restaurar datos de prueba
-          </button>
-        </div>
-
-        <div class="toolbar-horarios">
-          <div class="contador-badge" id="contadorTramosProfesor">
-            Cargando tramos publicados...
-          </div>
-          <span style="font-size: 0.85rem; color: #64748b;">
-            💡 Todos los tramos que publiques aquí se actualizan inmediatamente para los alumnos.
-          </span>
-        </div>
-
-        <!-- Cuadrícula interactiva de tramos -->
-        <div class="grid-tramos" id="gridTramosProfesor">
-          <!-- Renderizado dinámico desde horarios.js -->
-        </div>
-      </section>
-    </main>
-
-    <!-- Modal de Inicio de Sesión / Cambio de Usuario -->
-    <dialog id="miModal">
-      <form method="dialog">
-        <button class="btn-cerrar-x" aria-label="Cerrar modal">×</button>
-      </form>
-
-      <h2>Cambiar de Usuario</h2>
-      <p class="modal-subtitulo">
-        Inicia sesión con otro rol para comprobar las funciones específicas.
+    <!-- Encabezado de la Sección -->
+    <div class="seccion-titulo-bloque">
+      <h1>Gestión de Horarios de Tutoría</h1>
+      <p>Publica tus tramos de horarios disponibles para que los alumnos conozcan cuándo pueden reservar una tutoría.
       </p>
+    </div>
 
-      <form class="formulario-login" id="loginForm">
-        <div class="grupo-input">
-          <label for="usuario">Usuario o Rol</label>
-          <input
-            type="text"
-            id="usuario"
-            placeholder="Escribe 'profesor' o 'alumno'"
-            required
-            autocomplete="username"
-          />
-        </div>
+    <!-- Alerta feedback interactiva -->
+    <div id="alertaFeedbackExito" class="alerta-feedback exito" role="alert">
+      <span>✅</span>
+      <div>
+        <strong>¡Tramo horario publicado correctamente!</strong>
+        <p style="margin: 0.1rem 0 0 0; font-size: 0.88rem;">El nuevo horario ya está disponible en la plataforma para
+          que los alumnos lo consulten y reserven.</p>
+      </div>
+    </div>
 
-        <div class="grupo-input">
-          <label for="password">Contraseña</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="••••••••"
-            value="123456"
-            required
-            autocomplete="current-password"
-          />
-        </div>
+    <!-- Solicitudes de tutoría recibidas -->
+    <section class="card-panel" aria-labelledby="titulo-solicitudes">
+      <div class="card-header-flex">
+        <h3 id="titulo-solicitudes">🔔 Solicitudes de tutoría</h3>
+        <span class="contador-solicitudes" id="contadorSolicitudes">Cargando...</span>
+      </div>
+      <div class="lista-solicitudes" id="listaSolicitudes"></div>
+    </section>
 
-        <button type="submit" class="btn-enviar">Entrar</button>
+    <!-- Bloque 1: Formulario para publicar tramos de horarios disponibles -->
+    <section class="card-panel" aria-labelledby="titulo-publicar">
+      <div class="card-header-flex">
+        <h3 id="titulo-publicar">➕ Publicar nuevo tramo de horario disponible</h3>
+        <span style="font-size: 0.85rem; color: #64748b;">Rellena los datos para abrir un nuevo tramo de tutoría</span>
+      </div>
 
-        <div class="demo-pistas">
-          <strong>Acceso rápido de prueba:</strong>
-          <div class="demo-botones-rapidos">
-            <button type="button" class="btn-demo-rapido" onclick="iniciarSesionRapida('profesor')">
-              👨‍🏫 Profesor
-            </button>
-            <button type="button" class="btn-demo-rapido" onclick="iniciarSesionRapida('alumno')">
-              🎓 Alumno
-            </button>
+      <form id="formPublicarHorario">
+        <div class="form-grid-horario">
+          <!-- Día de la semana -->
+          <div class="form-group">
+            <label for="tramoDia">Día de la semana *</label>
+            <select id="tramoDia" required>
+              <option value="Lunes">Lunes</option>
+              <option value="Martes">Martes</option>
+              <option value="Miércoles">Miércoles</option>
+              <option value="Jueves">Jueves</option>
+              <option value="Viernes">Viernes</option>
+            </select>
+          </div>
+
+          <!-- Hora de inicio -->
+          <div class="form-group">
+            <label for="tramoHoraInicio">Hora de inicio *</label>
+            <input type="time" id="tramoHoraInicio" value="09:30" required />
+          </div>
+
+          <!-- Hora de fin -->
+          <div class="form-group">
+            <label for="tramoHoraFin">Hora de finalización *</label>
+            <input type="time" id="tramoHoraFin" value="11:00" required />
+          </div>
+
+          <!-- Modalidad -->
+          <div class="form-group">
+            <label for="tramoModalidad">Modalidad *</label>
+            <select id="tramoModalidad" required>
+              <option value="Presencial">Presencial (Despacho / Aula)</option>
+              <option value="Online">Online (Videollamada)</option>
+            </select>
+          </div>
+
+          <!-- Asignatura / Módulo -->
+          <div class="form-group">
+            <label for="tramoAsignatura">Asignatura o Especialidad *</label>
+            <input type="text" id="tramoAsignatura" placeholder="Ej: Desarrollo de Interfaces Web"
+              value="Desarrollo de Interfaces Web" required />
+          </div>
+
+          <!-- Ubicación / Aula o enlace -->
+          <div class="form-group">
+            <label for="tramoLugar">Despacho o Enlace virtual *</label>
+            <input type="text" id="tramoLugar" placeholder="Ej: Despacho 204 o Google Meet"
+              value="Despacho 204 (Edificio Central)" required />
+          </div>
+
+          <!-- Notas adicionales -->
+          <div class="form-group campo-full">
+            <label for="tramoNotas">Observaciones / Indicaciones para el alumno</label>
+            <textarea id="tramoNotas" rows="2"
+              placeholder="Ej: Traer dudas preparadas, proyectos en el portátil o enunciado de la práctica..."></textarea>
           </div>
         </div>
-      </form>
-    </dialog>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2026 TUTORÍAS. Todos los derechos reservados.</p>
-      <div class="footer-links">
-        <a href="index.html">Inicio</a>
-        <a href="ayuda.html">Ayuda</a>
-        <a href="contacto.html">Contacto</a>
+        <div class="form-acciones">
+          <button type="submit" class="btn-publicar">
+            <span>➕</span> Publicar Tramo Horario
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Bloque 2: Listado de tramos de horarios publicados -->
+    <section class="card-panel" aria-labelledby="titulo-tramos-publicados">
+      <div class="card-header-flex">
+        <h3 id="titulo-tramos-publicados">📋 Mis Tramos Horarios Publicados</h3>
+        <button type="button" class="btn-secundario" id="btnRestablecerTramos" style="font-size: 0.82rem;">
+          🔄 Restaurar datos de prueba
+        </button>
       </div>
-    </footer>
-  </body>
+
+      <div class="toolbar-horarios">
+        <div class="contador-badge" id="contadorTramosProfesor">
+          Cargando tramos publicados...
+        </div>
+        <span style="font-size: 0.85rem; color: #64748b;">
+          💡 Todos los tramos que publiques aquí se actualizan inmediatamente para los alumnos.
+        </span>
+      </div>
+
+      <!-- Cuadrícula interactiva de tramos -->
+      <div class="grid-tramos" id="gridTramosProfesor">
+        <!-- Renderizado dinámico desde horarios.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Inicio de Sesión / Cambio de Usuario -->
+  <dialog id="miModal">
+    <form method="dialog">
+      <button class="btn-cerrar-x" aria-label="Cerrar modal">×</button>
+    </form>
+
+    <h2>Cambiar de Usuario</h2>
+    <p class="modal-subtitulo">
+      Inicia sesión con otro rol para comprobar las funciones específicas.
+    </p>
+
+    <form class="formulario-login" id="loginForm">
+      <div class="grupo-input">
+        <label for="usuario">Usuario o Rol</label>
+        <input type="text" id="usuario" placeholder="Escribe 'profesor' o 'alumno'" required autocomplete="username" />
+      </div>
+
+      <div class="grupo-input">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="••••••••" value="123456" required
+          autocomplete="current-password" />
+      </div>
+
+      <button type="submit" class="btn-enviar">Entrar</button>
+
+      <div class="demo-pistas">
+        <strong>Acceso rápido de prueba:</strong>
+        <div class="demo-botones-rapidos">
+          <button type="button" class="btn-demo-rapido" onclick="iniciarSesionRapida('profesor')">
+            👨‍🏫 Profesor
+          </button>
+          <button type="button" class="btn-demo-rapido" onclick="iniciarSesionRapida('alumno')">
+            🎓 Alumno
+          </button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Diálogo: cancelar tutoría por fuerza mayor -->
+  <dialog id="dialogCancelar" class="dialog-cancelar">
+    <h2>Cancelar tutoría</h2>
+    <p id="resumenCancelar"></p>
+    <label for="motivoCancelacion">Motivo de fuerza mayor *</label>
+    <textarea id="motivoCancelacion" rows="3" maxlength="200"
+      placeholder="Ej: Enfermedad, avería, reunión urgente..."></textarea>
+    <p id="errorCancelar" class="error-cancelar" hidden>Indica el motivo (mínimo 5 caracteres).</p>
+    <div class="acciones-cancelar">
+      <button type="button" id="btnVolverCancelar">Volver</button>
+      <button type="button" id="btnConfirmarCancelar">Cancelar tutoría y avisar</button>
+    </div>
+  </dialog>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 TUTORÍAS. Todos los derechos reservados.</p>
+    <div class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="ayuda.html">Ayuda</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </footer>
+</body>
+
 </html>
