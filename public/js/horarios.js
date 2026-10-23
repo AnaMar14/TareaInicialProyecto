@@ -20,7 +20,7 @@ const TRAMOS_INICIALES = [
     modalidad: "Presencial",
     lugar: "Despacho 204 (Edificio Central)",
     estado: "Disponible",
-    notas: "Resolución de dudas sobre maquetación, HTML y CSS."
+    notas: "Resolución de dudas sobre maquetación, HTML y CSS.",
   },
   {
     id: "tramo-2",
@@ -32,7 +32,7 @@ const TRAMOS_INICIALES = [
     modalidad: "Online",
     lugar: "Google Meet (Enlace en campus virtual)",
     estado: "Disponible",
-    notas: "Tutorías virtuales para repaso general y consultas de clase."
+    notas: "Tutorías virtuales para repaso general y consultas de clase.",
   },
   {
     id: "tramo-3",
@@ -44,22 +44,34 @@ const TRAMOS_INICIALES = [
     modalidad: "Presencial",
     lugar: "Laboratorio 3 - Planta 1",
     estado: "Disponible",
-    notas: "Consultas de diseño relacional, normalización y SQL."
-  }
+    notas: "Consultas de diseño relacional, normalización y SQL.",
+  },
 ];
 
 /* ==========================================================================
    UTILIDADES
    ========================================================================== */
 function escapeHtml(texto) {
-  return String(texto ?? "").replace(/[&<>"']/g, (c) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  }[c]));
+  return String(texto ?? "").replace(
+    /[&<>"']/g,
+    (c) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[c],
+  );
 }
 
 function fechaLegible(fechaISO) {
   const f = new Date(fechaISO + "T00:00:00");
-  return f.toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" });
+  return f.toLocaleDateString("es-ES", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
 }
 
 function leerLista(clave) {
@@ -95,9 +107,18 @@ function mostrarToast(mensaje) {
 // Avisa cuando OTRA pestaña modifica tramos o reservas
 function suscribirCambios(callback) {
   window.addEventListener("storage", (e) => {
-    if (e.key !== null && e.key !== STORAGE_KEY_TRAMOS && e.key !== STORAGE_KEY_RESERVAS) return;
+    if (
+      e.key !== null &&
+      e.key !== STORAGE_KEY_TRAMOS &&
+      e.key !== STORAGE_KEY_RESERVAS
+    )
+      return;
     const parsear = (v) => {
-      try { return JSON.parse(v) || []; } catch (err) { return []; }
+      try {
+        return JSON.parse(v) || [];
+      } catch (err) {
+        return [];
+      }
     };
     callback(e.key, parsear(e.oldValue), parsear(e.newValue));
   });
@@ -176,9 +197,16 @@ function crearReserva({ tramoId, fecha, alumno, motivo }) {
 
   const reservas = obtenerReservas();
   const ocupado = reservas.some(
-    (r) => r.tramoId === tramoId && r.fecha === fecha && ESTADOS_ACTIVOS.includes(r.estado)
+    (r) =>
+      r.tramoId === tramoId &&
+      r.fecha === fecha &&
+      ESTADOS_ACTIVOS.includes(r.estado),
   );
-  if (ocupado) return { ok: false, error: "Este horario ya ha sido solicitado por otra persona." };
+  if (ocupado)
+    return {
+      ok: false,
+      error: "Este horario ya ha sido solicitado por otra persona.",
+    };
 
   // Se guarda una copia de los datos del tramo para que la reserva siga
   // siendo legible aunque el profesor retire el tramo después.
@@ -196,7 +224,7 @@ function crearReserva({ tramoId, fecha, alumno, motivo }) {
     modalidad: tramo.modalidad,
     lugar: tramo.lugar,
     estado: "Pendiente",
-    creada: new Date().toISOString()
+    creada: new Date().toISOString(),
   };
 
   reservas.push(reserva);
@@ -214,28 +242,35 @@ function cambiarEstadoReserva(id, estado, extra = {}) {
 }
 
 function contarPendientesProfesor(nombre) {
-  return obtenerReservas().filter((r) => r.profesor === nombre && r.estado === "Pendiente").length;
+  return obtenerReservas().filter(
+    (r) => r.profesor === nombre && r.estado === "Pendiente",
+  ).length;
 }
 
 // Badge rojo con el nº de solicitudes pendientes junto al enlace "Panel Profesor"
 function actualizarBadgeNav() {
   const sesion = sesionActual();
-  const n = sesion && sesion.rol === "profesor" ? contarPendientesProfesor(sesion.nombre) : 0;
+  const n =
+    sesion && sesion.rol === "profesor"
+      ? contarPendientesProfesor(sesion.nombre)
+      : 0;
 
-  document.querySelectorAll('.nav-links a[href="profesor.html"]').forEach((a) => {
-    let badge = a.querySelector(".badge-notif");
-    if (n > 0) {
-      if (!badge) {
-        badge = document.createElement("span");
-        badge.className = "badge-notif";
-        badge.setAttribute("aria-label", "solicitudes pendientes");
-        a.appendChild(badge);
+  document
+    .querySelectorAll('.nav-links a[href="profesor.html"]')
+    .forEach((a) => {
+      let badge = a.querySelector(".badge-notif");
+      if (n > 0) {
+        if (!badge) {
+          badge = document.createElement("span");
+          badge.className = "badge-notif";
+          badge.setAttribute("aria-label", "solicitudes pendientes");
+          a.appendChild(badge);
+        }
+        badge.textContent = n;
+      } else if (badge) {
+        badge.remove();
       }
-      badge.textContent = n;
-    } else if (badge) {
-      badge.remove();
-    }
-  });
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -256,7 +291,8 @@ function inicializarVistaProfesor() {
   const listaSolicitudes = document.getElementById("listaSolicitudes");
   const contadorSolicitudes = document.getElementById("contadorSolicitudes");
 
-  const nombreProfesor = (sesionActual() || {}).nombre || "Prof. Julián Barreno";
+  const nombreProfesor =
+    (sesionActual() || {}).nombre || "Prof. Julián Barreno";
 
   function renderizarTramos() {
     const tramos = obtenerTramos().filter((t) => t.profesor === nombreProfesor);
@@ -311,7 +347,9 @@ function inicializarVistaProfesor() {
 
   function renderizarSolicitudes() {
     if (!listaSolicitudes) return;
-    const mias = ordenarReservas(obtenerReservas().filter((r) => r.profesor === nombreProfesor));
+    const mias = ordenarReservas(
+      obtenerReservas().filter((r) => r.profesor === nombreProfesor),
+    );
     const pendientes = mias.filter((r) => r.estado === "Pendiente").length;
 
     if (contadorSolicitudes) {
@@ -326,10 +364,16 @@ function inicializarVistaProfesor() {
       return;
     }
 
-    const iconos = { Pendiente: "⏳", Aceptada: "✅", Rechazada: "❌", Cancelada: "🚫" };
+    const iconos = {
+      Pendiente: "⏳",
+      Aceptada: "✅",
+      Rechazada: "❌",
+      Cancelada: "🚫",
+    };
 
     listaSolicitudes.innerHTML = mias
-      .map((r) => `
+      .map(
+        (r) => `
         <article class="solicitud-card ${r.estado.toLowerCase()}">
           <div class="solicitud-info">
             <div class="solicitud-titulo">
@@ -338,15 +382,46 @@ function inicializarVistaProfesor() {
             </div>
             <div class="solicitud-detalle">📅 ${escapeHtml(fechaLegible(r.fecha))} · ⏰ ${escapeHtml(r.horaInicio)} - ${escapeHtml(r.horaFin)}</div>
             <div class="solicitud-detalle">📖 ${escapeHtml(r.asignatura)} · ${escapeHtml(r.modalidad)} · 📍 ${escapeHtml(r.lugar)}</div>
-            ${r.motivo ? `<div class="solicitud-motivo">💬 "${escapeHtml(r.motivo)}"</div>` : ""}
-            ${r.estado === "Cancelada" ? `<div class="solicitud-detalle">${r.canceladaPor === "alumno" ? "El alumno canceló la solicitud." : "Cancelada al retirar el tramo."}</div>` : ""}
+
+
+            ${r.motivo ? `<div class="solicitud-motivo"><strong>\u{1F4DD} Dudas del alumno:</strong> ` + `${escapeHtml(r.motivo)}</div>` : ""}
+
+
+            ${
+              r.estado === "Cancelada"
+                ? `<div class="solicitud-detalle">${
+                    r.canceladaPor === "alumno"
+                      ? "El alumno canceló la solicitud."
+                      : r.motivoCancelacion
+                        ? "Cancelada por ti. Motivo: " +
+                          escapeHtml(r.motivoCancelacion)
+                        : "Cancelada al retirar el tramo."
+                  }</div>`
+                : ""
+            }
           </div>
-          ${r.estado === "Pendiente" ? `
+          ${
+            r.estado === "Pendiente"
+              ? `
           <div class="solicitud-acciones">
             <button type="button" class="btn-aceptar" data-accion="aceptar" data-id="${escapeHtml(r.id)}">✔ Aceptar</button>
             <button type="button" class="btn-rechazar" data-accion="rechazar" data-id="${escapeHtml(r.id)}">✖ Rechazar</button>
-          </div>` : ""}
-        </article>`)
+          </div>`
+              : ""
+          }
+
+          ${
+            r.estado === "Aceptada"
+              ? `
+            <div class="solicitud-acciones">
+          <button type="button" class="btn-rechazar" data-accion="cancelar-profesor"
+          data-id="${escapeHtml(r.id)}">\u{1F6AB} Cancelar tutoría</button>
+          </div>`
+              : ""
+          }
+
+        </article>`,
+      )
       .join("");
   }
 
@@ -363,7 +438,7 @@ function inicializarVistaProfesor() {
       if (!btn) return;
       const id = btn.dataset.id;
       const activas = obtenerReservas().filter(
-        (r) => r.tramoId === id && ESTADOS_ACTIVOS.includes(r.estado)
+        (r) => r.tramoId === id && ESTADOS_ACTIVOS.includes(r.estado),
       ).length;
 
       const aviso = activas
@@ -385,12 +460,15 @@ function inicializarVistaProfesor() {
       const accion = btn.dataset.accion;
       if (accion !== "aceptar" && accion !== "rechazar") return;
 
-      const r = cambiarEstadoReserva(btn.dataset.id, accion === "aceptar" ? "Aceptada" : "Rechazada");
+      const r = cambiarEstadoReserva(
+        btn.dataset.id,
+        accion === "aceptar" ? "Aceptada" : "Rechazada",
+      );
       if (r) {
         mostrarToast(
           accion === "aceptar"
             ? `✅ Has aceptado la tutoría de ${r.alumno}.`
-            : `Has rechazado la solicitud de ${r.alumno}.`
+            : `Has rechazado la solicitud de ${r.alumno}.`,
         );
       }
       renderizar();
@@ -407,7 +485,9 @@ function inicializarVistaProfesor() {
       const horaFin = document.getElementById("tramoHoraFin").value;
       const modalidad = document.getElementById("tramoModalidad").value;
       const lugar = document.getElementById("tramoLugar").value.trim();
-      const asignatura = document.getElementById("tramoAsignatura").value.trim();
+      const asignatura = document
+        .getElementById("tramoAsignatura")
+        .value.trim();
       const notas = document.getElementById("tramoNotas").value.trim();
 
       if (horaInicio >= horaFin) {
@@ -423,13 +503,15 @@ function inicializarVistaProfesor() {
         modalidad,
         lugar: lugar || (modalidad === "Online" ? "Videollamada" : "Despacho"),
         asignatura: asignatura || "Tutoría General",
-        notas
+        notas,
       });
 
       if (alertaExito) {
         alertaExito.style.display = "flex";
         alertaExito.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        setTimeout(() => { alertaExito.style.display = "none"; }, 5000);
+        setTimeout(() => {
+          alertaExito.style.display = "none";
+        }, 5000);
       }
 
       document.getElementById("tramoLugar").value = "";
@@ -440,7 +522,11 @@ function inicializarVistaProfesor() {
 
   if (btnRestablecer) {
     btnRestablecer.addEventListener("click", () => {
-      if (confirm("¿Deseas restaurar los tramos iniciales de prueba? Se borrarán también todas las solicitudes.")) {
+      if (
+        confirm(
+          "¿Deseas restaurar los tramos iniciales de prueba? Se borrarán también todas las solicitudes.",
+        )
+      ) {
         restablecerTramosPrueba();
         renderizar();
       }
@@ -451,8 +537,17 @@ function inicializarVistaProfesor() {
   suscribirCambios((clave, antiguas, nuevas) => {
     if (clave === STORAGE_KEY_RESERVAS) {
       nuevas
-        .filter((r) => r.profesor === nombreProfesor && r.estado === "Pendiente" && !antiguas.some((o) => o.id === r.id))
-        .forEach((r) => mostrarToast(`🔔 Nueva solicitud de ${r.alumno} para el ${fechaLegible(r.fecha)} a las ${r.horaInicio}.`));
+        .filter(
+          (r) =>
+            r.profesor === nombreProfesor &&
+            r.estado === "Pendiente" &&
+            !antiguas.some((o) => o.id === r.id),
+        )
+        .forEach((r) =>
+          mostrarToast(
+            `🔔 Nueva solicitud de ${r.alumno} para el ${fechaLegible(r.fecha)} a las ${r.horaInicio}.`,
+          ),
+        );
     }
     renderizar();
   });

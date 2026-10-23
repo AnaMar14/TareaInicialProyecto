@@ -1,0 +1,50 @@
+/* Diálogo de cancelación (historia 2) */
+.dialog-cancelar {
+    border: none;
+    border-radius: 14px;
+    padding: 1.5rem;
+    width: min(440px, 92vw);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.dialog-cancelar::backdrop {
+    background: rgba(15, 23, 42, 0.55);
+}
+
+.dialog-cancelar textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0.4rem;
+    padding: 0.6rem;
+    border: 1px solid #d5dce2;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.error-cancelar {
+    color: #b91c1c;
+    font-size: 0.85rem;
+    margin: 0.4rem 0 0;
+}
+
+.acciones-cancelar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.acciones-cancelar button {
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #d5dce2;
+    background: #fff;
+    cursor: pointer;
+    font: inherit;
+}
+
+.acciones-cancelar #btnConfirmarCancelar {
+    background: #dc2626;
+    border-color: #dc2626;
+    color: #fff;
+}
