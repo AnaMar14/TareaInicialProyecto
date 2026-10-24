@@ -27,7 +27,33 @@ nav {
   font-weight: bold;
   text-decoration: none;
 }
+#modoOscuro {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1b4f1b;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
 
+#modoOscuro:hover {
+  background-color: #15294a;
+  border: 4px inset #ffffff;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+#modoOscuro:active {
+  transform: translateY(0);
+}
+
+#modoOscuro:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 2px;
+}
 .nav-links {
   display: flex;
   list-style: none;
