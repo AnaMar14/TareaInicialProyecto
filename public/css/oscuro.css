@@ -1,0 +1,60 @@
+body.oscuro {
+  background: #303030;
+  color: #f1f1f1;
+}
+
+body.oscuro .hero-tutorias,
+body.oscuro .card-rol-acceso,
+body.oscuro dialog {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border-color: #333;
+}
+
+body.oscuro h1,
+body.oscuro h2,
+body.oscuro h3,
+body.oscuro p,
+body.oscuro li,
+body.oscuro label {
+  color: #f1f1f1;
+}
+
+body.oscuro input {
+  background: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body.oscuro .demo-pistas {
+  background: #2a2a2a;
+}
+
+body.oscuro .footer {
+  background: #0a0a0a;
+  color: #ccc;
+}
+
+body.oscuro .footer .footer-links a{
+  background: #0a0a0a;
+  color: #ccc;
+}
+
+body.oscuro #modoOscuro{
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #15294a;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+body.oscuro #modoOscuro:hover{
+  background-color: #1b4f1b;
+  border: 4px inset #ffffff;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
