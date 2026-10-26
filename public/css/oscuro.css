@@ -1,46 +1,55 @@
-body.oscuro {
+/* Fondo en html para evitar destellos mientras carga */
+html {
+  background: #fff;
+}
+
+html.oscuro {
+  background: #303030;
+}
+
+html.oscuro body {
   background: #303030;
   color: #f1f1f1;
 }
 
-body.oscuro .hero-tutorias,
-body.oscuro .card-rol-acceso,
-body.oscuro dialog {
+html.oscuro .hero-tutorias,
+html.oscuro .card-rol-acceso,
+html.oscuro dialog {
   background: #1e1e1e;
   color: #f1f1f1;
   border-color: #333;
 }
 
-body.oscuro h1,
-body.oscuro h2,
-body.oscuro h3,
-body.oscuro p,
-body.oscuro li,
-body.oscuro label {
+html.oscuro h1,
+html.oscuro h2,
+html.oscuro h3,
+html.oscuro p,
+html.oscuro li,
+html.oscuro label {
   color: #f1f1f1;
 }
 
-body.oscuro input {
+html.oscuro input {
   background: #2a2a2a;
   color: #f1f1f1;
   border: 1px solid #444;
 }
 
-body.oscuro .demo-pistas {
+html.oscuro .demo-pistas {
   background: #2a2a2a;
 }
 
-body.oscuro .footer {
+html.oscuro .footer {
   background: #0a0a0a;
   color: #ccc;
 }
 
-body.oscuro .footer .footer-links a{
+html.oscuro .footer .footer-links a {
   background: #0a0a0a;
   color: #ccc;
 }
 
-body.oscuro #modoOscuro{
+html.oscuro #modoOscuro {
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: 600;
@@ -52,9 +61,13 @@ body.oscuro #modoOscuro{
   transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
-body.oscuro #modoOscuro:hover{
+html.oscuro #modoOscuro:hover {
   background-color: #1b4f1b;
   border: 4px inset #ffffff;
   color: #ffffff;
   transform: translateY(-2px);
 }
+
+.txt-oscuro { display: none; }
+html.oscuro .txt-claro { display: none; }
+html.oscuro .txt-oscuro { display: inline; }

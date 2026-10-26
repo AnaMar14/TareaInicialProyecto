@@ -12,6 +12,16 @@
     <script src="public/js/horarios.js" defer></script>
     <script src="public/js/iniciarSesion.js" defer></script>
     <script src="public/js/iniciarSesion.js" defer></script>
+    <script>
+    (function () {
+      try {
+        var guardado = localStorage.getItem("tema");
+        var prefiereOscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var oscuro = guardado ? guardado === "oscuro" : prefiereOscuro;
+        if (oscuro) document.documentElement.classList.add("oscuro");
+      } catch (e) {}
+    })();
+  </script>
   </head>
 
   <body>
@@ -31,7 +41,10 @@
           <span style="font-size: 1.1rem; color: #fff; font-weight: 700;">TUTORÍAS</span>
         </a>
       </div>
-       <button id="modoOscuro">Modo oscuro ✨</button>
+       <button id="modoOscuro">
+        <span class="txt-claro">Modo oscuro ✨</span>
+        <span class="txt-oscuro">Modo claro ☀️</span>
+      </button>
 
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
