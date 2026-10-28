@@ -1,3 +1,7 @@
+/* ==========================================================================
+   MODO OSCURO
+   ========================================================================== */
+
 /* Fondo en html para evitar destellos mientras carga */
 html {
   background: #fff;
@@ -5,6 +9,19 @@ html {
 
 html.oscuro {
   background: #303030;
+  color-scheme: dark; /* time/select/scrollbars nativos en oscuro */
+
+  /* Redefinimos las variables de tutorias.css */
+  --color-primary-light: #14301a;
+  --color-dark: #f1f1f1;
+  --color-dark-surface: #0f172a;
+  --color-gray-50: #2a2a2a;
+  --color-gray-100: #3a3a3a;
+  --color-gray-200: #3d3d3d;
+  --color-gray-300: #505050;
+  --color-gray-600: #b5bcc7;
+  --color-gray-700: #d6dbe3;
+  --color-blue-light: #172554;
 }
 
 html.oscuro body {
@@ -12,35 +29,336 @@ html.oscuro body {
   color: #f1f1f1;
 }
 
-html.oscuro .hero-tutorias,
-html.oscuro .card-rol-acceso,
-html.oscuro dialog {
-  background: #1e1e1e;
-  color: #f1f1f1;
-  border-color: #333;
-}
-
+/* ---------- Textos ---------- */
 html.oscuro h1,
 html.oscuro h2,
 html.oscuro h3,
-html.oscuro p,
-html.oscuro li,
+html.oscuro h4,
 html.oscuro label {
   color: #f1f1f1;
 }
 
-html.oscuro input {
+html.oscuro .hero-tutorias h1 span {
+  color: #66c766;
+}
+
+/* Textos grises con style="color:#64748b" en línea */
+html.oscuro [style*="64748b"] {
+  color: #b5bcc7 !important;
+}
+
+html.oscuro .solicitudes-vacio,
+html.oscuro .contador-solicitudes {
+  color: #b5bcc7;
+}
+
+html.oscuro .celda-vacia {
+  color: #555;
+}
+
+/* ---------- Contenedores / tarjetas ---------- */
+html.oscuro .hero-tutorias,
+html.oscuro .card-rol-acceso,
+html.oscuro .perfil-header-card,
+html.oscuro .card-panel,
+html.oscuro dialog {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border-color: #3d3d3d;
+}
+
+html.oscuro .perfil-header-card {
+  border-left-color: #66c766;
+}
+
+html.oscuro .toolbar-horarios,
+html.oscuro .tramo-card,
+html.oscuro .empty-state {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #f1f1f1;
+}
+
+html.oscuro .tramo-card:hover {
+  border-color: #666;
+}
+
+html.oscuro .tramo-card-footer {
+  border-top-color: #444;
+}
+
+html.oscuro .card-header-flex {
+  border-bottom-color: #3d3d3d;
+}
+
+html.oscuro .perfil-avatar {
+  background: #14301a;
+  color: #9be29b;
+}
+
+html.oscuro .card-rol-acceso.profesor .card-rol-icono {
+  background: #14301a;
+  color: #9be29b;
+}
+
+html.oscuro .card-rol-acceso.alumno .card-rol-icono {
+  background: #172554;
+  color: #93c5fd;
+}
+
+/* ---------- Badges / etiquetas ---------- */
+html.oscuro .badge-rol.profesor {
+  background: #14301a;
+  color: #9be29b;
+  border-color: #2e6b3d;
+}
+
+html.oscuro .badge-rol.alumno {
+  background: #172554;
+  color: #93c5fd;
+  border-color: #1e40af;
+}
+
+html.oscuro .hero-tag,
+html.oscuro .estado-badge.disponible {
+  background: #14301a;
+  color: #9be29b;
+  border-color: #2e6b3d;
+}
+
+html.oscuro .dia-badge {
+  background: #14301a;
+  color: #9be29b;
+  border-color: #2e6b3d;
+}
+
+html.oscuro .badge-modalidad.presencial {
+  background: #3a3a3a;
+  color: #e2e8f0;
+  border-color: #555;
+}
+
+html.oscuro .badge-modalidad.online {
+  background: #172554;
+  color: #93c5fd;
+  border-color: #1e40af;
+}
+
+html.oscuro .contador-badge,
+html.oscuro .contador-badge strong {
+  color: #f1f1f1;
+}
+
+html.oscuro .contador-solicitudes.con-pendientes {
+  background: #4a1f1f;
+  color: #ffb4b4;
+}
+
+/* ---------- Formularios ---------- */
+html.oscuro input,
+html.oscuro select,
+html.oscuro textarea,
+html.oscuro .form-group input,
+html.oscuro .form-group select,
+html.oscuro .form-group textarea,
+html.oscuro .filtros-horario select,
+html.oscuro .campo-motivo,
+html.oscuro .dialog-cancelar textarea {
   background: #2a2a2a;
   color: #f1f1f1;
-  border: 1px solid #444;
+  border: 1px solid #505050;
+}
+
+html.oscuro input::placeholder,
+html.oscuro textarea::placeholder {
+  color: #888;
+}
+
+html.oscuro .form-group input:focus,
+html.oscuro .form-group select:focus,
+html.oscuro .form-group textarea:focus {
+  border-color: #66c766;
+  box-shadow: 0 0 0 3px rgba(102, 199, 102, 0.3);
+}
+
+html.oscuro select option {
+  background: #2a2a2a;
+  color: #f1f1f1;
+}
+
+/* ---------- Botones ---------- */
+html.oscuro .btn-secundario,
+html.oscuro .btn-demo-rapido,
+html.oscuro .selector-rol-modal button,
+html.oscuro .btn-rechazar {
+  background: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+html.oscuro .btn-secundario:hover,
+html.oscuro .btn-demo-rapido:hover,
+html.oscuro .btn-rechazar:hover {
+  background: #3a3a3a;
+}
+
+html.oscuro .selector-rol-modal button.activo {
+  background: #14301a;
+  color: #9be29b;
+  border-color: #66c766;
+}
+
+html.oscuro .btn-cerrar-sesion,
+html.oscuro .btn-eliminar-tramo {
+  background: #3a1f1f;
+  color: #ffb4b4;
+  border: 1px solid #7a3333;
+}
+
+html.oscuro .btn-cerrar-sesion:hover,
+html.oscuro .btn-eliminar-tramo:hover {
+  background: #5a2a2a;
+  color: #ffd0d0;
+}
+
+html.oscuro .btn-cerrar-x {
+  background: transparent;
+  color: #f1f1f1;
+}
+
+/* ---------- Alertas ---------- */
+html.oscuro .alerta-feedback.exito {
+  background: #12301a;
+  color: #b8f0c4;
+  border-color: #2e6b3d;
+}
+
+html.oscuro .alerta-feedback.info {
+  background: #172554;
+  color: #bfdbfe;
+  border-color: #1e40af;
+}
+
+html.oscuro .alerta-feedback p,
+html.oscuro .alerta-feedback strong {
+  color: inherit;
+}
+
+/* ---------- Solicitudes ---------- */
+html.oscuro .solicitud-card {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #f1f1f1;
+}
+
+html.oscuro .solicitud-card.pendiente {
+  background: #3a2f12;
+  border-left-color: #f59e0b;
+}
+
+html.oscuro .solicitud-card.aceptada {
+  background: #12301a;
+  border-left-color: #22c55e;
+}
+
+html.oscuro .solicitud-card.rechazada,
+html.oscuro .solicitud-card.cancelada {
+  border-left-color: #666;
+}
+
+html.oscuro .solicitud-titulo {
+  color: #f1f1f1;
+}
+
+html.oscuro .solicitud-detalle {
+  color: #b5bcc7;
+}
+
+html.oscuro .solicitud-motivo {
+  color: #d6dbe3;
+}
+
+html.oscuro .solicitud-estado {
+  background: #3a3a3a;
+  color: #e2e8f0;
+}
+
+html.oscuro .solicitud-estado.pendiente {
+  background: #4a3a10;
+  color: #fcd34d;
+}
+
+html.oscuro .solicitud-estado.aceptada {
+  background: #14301a;
+  color: #9be29b;
+}
+
+html.oscuro .solicitud-estado.rechazada {
+  background: #4a1f1f;
+  color: #ffb4b4;
+}
+
+/* ---------- Calendario del alumno ---------- */
+html.oscuro .hueco.mia.pendiente,
+html.oscuro .leyenda i.l-pendiente {
+  background: #4a3a10;
+  color: #fcd34d;
+  border-color: #f59e0b;
+}
+
+html.oscuro .leyenda {
+  color: #d6dbe3;
+}
+
+html.oscuro table {
+  color: #f1f1f1;
+  border-color: #444;
+}
+
+html.oscuro th,
+html.oscuro td {
+  border-color: #444;
+}
+
+/* ---------- Diálogos ---------- */
+html.oscuro dialog::backdrop,
+html.oscuro .dialog-cancelar::backdrop {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 html.oscuro .demo-pistas {
   background: #2a2a2a;
+  border-color: #555;
+  color: #b5bcc7;
 }
 
+html.oscuro .demo-pistas strong {
+  color: #f1f1f1;
+}
+
+html.oscuro .error-cancelar {
+  color: #ff8a8a;
+}
+
+html.oscuro .acciones-cancelar button {
+  background: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+html.oscuro .acciones-cancelar #btnConfirmarCancelar {
+  background: #b32d2d;
+  border-color: #b32d2d;
+  color: #fff;
+}
+
+/* ---------- Footer ---------- */
 html.oscuro .footer {
   background: #0a0a0a;
+  color: #ccc;
+}
+
+html.oscuro .footer p {
   color: #ccc;
 }
 
@@ -49,6 +367,7 @@ html.oscuro .footer .footer-links a {
   color: #ccc;
 }
 
+/* ---------- Botón de modo oscuro ---------- */
 html.oscuro #modoOscuro {
   padding: 10px 20px;
   font-size: 1rem;
@@ -71,3 +390,238 @@ html.oscuro #modoOscuro:hover {
 .txt-oscuro { display: none; }
 html.oscuro .txt-claro { display: none; }
 html.oscuro .txt-oscuro { display: inline; }
+
+html.oscuro .solicitud-motivo {
+  color: #000;
+}
+/* ==========================================================================
+   MODO OSCURO - PANEL ALUMNO (calendario + dudas)
+   ========================================================================== */
+
+/* ---------- Cabecera y filtro ---------- */
+html.oscuro .contenedor-calendario {
+  color: #f1f1f1;
+}
+
+html.oscuro .cabecera-calendario p,
+html.oscuro .resumen-reserva p,
+html.oscuro #mensajeSeleccion {
+  color: #b5bcc7;
+}
+
+html.oscuro #profesor {
+  background: #2a2a2a;
+  color: #f1f1f1;
+  border-color: #505050;
+}
+
+/* ---------- Contenedores ---------- */
+html.oscuro .calendario,
+html.oscuro .resumen-reserva {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border-color: #3d3d3d;
+  box-shadow: none;
+}
+
+/* ---------- Leyenda ---------- */
+html.oscuro .leyenda span {
+  color: #d6dbe3;
+}
+
+html.oscuro .libre {
+  background: #14301a;
+}
+
+html.oscuro .ocupado {
+  background: #4a1f1f;
+}
+
+html.oscuro .seleccionado {
+  background: #2878c8;
+}
+
+html.oscuro .leyenda i.l-pendiente {
+  background: #4a3a10;
+  border-color: #f59e0b;
+}
+
+/* ---------- Tabla ---------- */
+html.oscuro #tablaCalendario {
+  color: #f1f1f1;
+}
+
+html.oscuro #tablaCalendario th,
+html.oscuro #tablaCalendario td {
+  border-color: #444;
+}
+
+html.oscuro #tablaCalendario th {
+  background: #2a2a2a;
+  color: #f1f1f1;
+}
+
+html.oscuro #tablaCalendario td:first-child {
+  background: #2a2a2a;
+  color: #d6dbe3;
+}
+
+/* ---------- Huecos ---------- */
+html.oscuro .hueco {
+  background: #14301a;
+  color: #9be29b;
+}
+
+html.oscuro .hueco:not(.ocupado):not(.elegido):not(.mia):hover {
+  background: #1d4a28;
+}
+
+html.oscuro .hueco.ocupado {
+  background: #4a1f1f;
+  color: #ffb4b4;
+}
+
+html.oscuro .hueco.elegido {
+  background: #2878c8;
+  color: #fff;
+}
+
+html.oscuro .hueco.mia.pendiente {
+  background: #4a3a10;
+  color: #fcd34d;
+  border-color: #f59e0b;
+}
+
+/* ---------- Dudas / motivo ---------- */
+html.oscuro .contador-motivo {
+  color: #b5bcc7;
+}
+
+html.oscuro .campo-motivo.campo-error {
+  border-color: #ef4444;
+  outline-color: #7a3333;
+}
+
+/* La tarjeta de la duda mantiene su fondo amarillo claro (dudas.css), así que el texto va en negro */
+html.oscuro .solicitud-motivo {
+  color: #000;
+}
+
+/* ==========================================================================
+   MODO OSCURO - AYUDA
+   ========================================================================== */
+
+html.oscuro .main-content h1,
+html.oscuro .faq-section h2 {
+  color: #f1f1f1;
+}
+
+html.oscuro .subtitulo-ayuda {
+  color: #b5bcc7;
+}
+
+/* ---------- Tarjetas ---------- */
+html.oscuro .tarjeta-ayuda {
+  background-color: #1e1e1e;
+  border-color: #3d3d3d;
+  box-shadow: none;
+}
+
+html.oscuro .tarjeta-ayuda h3 {
+  color: #f1f1f1;
+}
+
+html.oscuro .tarjeta-ayuda p,
+html.oscuro .tarjeta-ayuda li {
+  color: #b5bcc7;
+}
+
+/* ---------- FAQ ---------- */
+html.oscuro .faq-item {
+  border-bottom-color: #3d3d3d;
+}
+
+html.oscuro .faq-item h4 {
+  color: #f1f1f1;
+}
+
+html.oscuro .faq-item p {
+  color: #b5bcc7;
+}
+
+/* ---------- Código y enlaces ---------- */
+html.oscuro .faq-item code {
+  background: #2a2a2a;
+  color: #9be29b;
+  border: 1px solid #444;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+html.oscuro .faq-item a {
+  color: #66c766;
+}
+
+html.oscuro .faq-item a:hover {
+  color: #9be29b;
+}
+
+/* ---------- Modal de inicio de sesión ---------- */
+html.oscuro .modal-subtitulo {
+  color: #b5bcc7;
+}
+/* ==========================================================================
+   MODO OSCURO - CONTACTO
+   ========================================================================== */
+
+html.oscuro .main-content h1 {
+  color: #f1f1f1;
+}
+
+html.oscuro .subtitulo-contacto {
+  color: #b5bcc7;
+}
+
+/* ---------- Formulario (sin tarjeta, solo campos) ---------- */
+html.oscuro .grupo-input label {
+  color: #f1f1f1;
+}
+
+html.oscuro .grupo-input input,
+html.oscuro .grupo-input textarea {
+  background: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #505050;
+}
+
+html.oscuro .grupo-input input:focus,
+html.oscuro .grupo-input textarea:focus {
+  border-color: #66c766;
+}
+
+/* ---------- Botón enviar ---------- */
+html.oscuro .btn-enviar-contacto {
+  background-color: #66c766;
+  color: #111827;
+  font-weight: 600;
+}
+
+html.oscuro .btn-enviar-contacto:hover {
+  background-color: #4dc24d;
+}
+
+/* ---------- Información de soporte ---------- */
+html.oscuro .info-contacto {
+  background-color: #1e1e1e;
+  border-color: #3d3d3d;
+}
+
+html.oscuro .info-contacto h3,
+html.oscuro .info-contacto strong {
+  color: #f1f1f1;
+}
+
+html.oscuro .info-contacto p,
+html.oscuro .info-contacto li {
+  color: #b5bcc7;
+}
