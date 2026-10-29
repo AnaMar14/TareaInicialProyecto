@@ -1,0 +1,71 @@
+/* Tablón de avisos */
+.aviso-card {
+  padding: 0.9rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #3b82f6;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1e293b;
+}
+
+.aviso-card.importante {
+  border-left-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.aviso-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.aviso-texto {
+  margin: 0.4rem 0 0.6rem;
+  white-space: pre-wrap;
+}
+
+.aviso-pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.form-group .check-aviso {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.check-aviso input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+}
+
+/* ---------- Modo oscuro ---------- */
+html.oscuro .aviso-card {
+  background: #172554;
+  border-color: #1e40af;
+  border-left-color: #60a5fa;
+  color: #f1f1f1;
+}
+
+html.oscuro .aviso-card.importante {
+  background: #3a2f12;
+  border-color: #6b5513;
+  border-left-color: #f59e0b;
+}
+
+html.oscuro .aviso-card strong {
+  color: #f1f1f1;
+}
+
+html.oscuro .aviso-pie,
+html.oscuro .aviso-cabecera small {
+  color: #b5bcc7;
+}
