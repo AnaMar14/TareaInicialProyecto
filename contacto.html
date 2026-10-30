@@ -7,23 +7,43 @@
     <link rel="stylesheet" href="public/css/nav.css" />
     <link rel="stylesheet" href="public/css/dialog.css" />
     <link rel="stylesheet" href="public/css/contacto.css" />
+    <link rel="stylesheet" href="public/css/oscuro.css" />
+    <script src="public/js/modoOscuro.js" defer></script>
+    <script src="public/js/horarios.js" defer></script>
     <script src="public/js/iniciarSesion.js" defer></script>
+    <script>
+    (function () {
+      try {
+        var guardado = localStorage.getItem("tema");
+        var prefiereOscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var oscuro = guardado ? guardado === "oscuro" : prefiereOscuro;
+        if (oscuro) document.documentElement.classList.add("oscuro");
+      } catch (e) {}
+    })();
+  </script>
   </head>
 
   <body>
     <!-- Barra de Navegación -->
     <nav class="navbar" aria-label="Navegación principal">
       <div class="logo">
-        <img
-          src="public/img/ini_sesion.png"
-          id="iniciarSesion"
-          width="30px"
-          height="30px"
-          alt="Iniciar Sesión"
-          style="cursor: pointer"
-        />
+        <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+          <img
+            src="public/img/ini_sesion.png"
+            id="iniciarSesion"
+            width="30px"
+            height="30px"
+            alt="Iniciar Sesión"
+            title="Haz clic para iniciar sesión"
+            style="cursor: pointer;"
+          />
+          <span style="font-size: 1.1rem; color: #fff; font-weight: 700;">TUTORÍAS</span>
+        </a>
       </div>
-
+      <button id="modoOscuro">
+        <span class="txt-claro">Modo oscuro ✨</span>
+        <span class="txt-oscuro">Modo claro ☀️</span>
+      </button>
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="profesor.html">Panel Profesor</a></li>
